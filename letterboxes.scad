@@ -1,17 +1,8 @@
+$fn=500;
 
 use <transformlib2d.scad>
 
-
-module Letter(letter, size=30, thickness=1) {
-                text(letter, 
-                     size=size*0.8,
-                     font="Zaio:style=Regular",
-                     halign="center",
-                     valign="center");
-}
-
-
-
+//Parameters
 thickness = 1;
 width = 33;
 length = 33;
@@ -25,7 +16,21 @@ offset = 4;
 stripe_height = 0.4;
 stripe_width = 10;
 
-letter = "F";
+
+component = "letter"; // or "box"
+letter = "T";
+
+
+
+module Letter(letter, size=30, thickness=1) {
+                text(letter, 
+                     size=size*0.8,
+                     font="Zaio:style=Regular",
+                     halign="center",
+                     valign="center");
+}
+
+
 
 module printletterbox(letter) {
 
@@ -101,17 +106,15 @@ module LetterBoxWithConnectors2(top, right, bottom, left) {
     }
 }
 
-//translate([33, 0, 0]) LetterBoxWithConnectors();
-//translate([0, 0, 0]) LetterBoxWithConnectors2(true, true, true, true);
-//printletter(letter);
 
-printletter(letter);
+if (component == "box") {
+    LetterBoxWithConnectors2(true, true, true, true);
+}
+else {
+    printletter(letter);
+}
 
 
-
-
-
-$fn=500;
 /*
 text = ["P", "A", "S", "C", "A", "L"];
 layout = [  ["A", "A", "S", "C", "A", "L"], 
