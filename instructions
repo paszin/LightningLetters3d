@@ -9,4 +9,12 @@ PLATFORM
 2. go to letterboxes.scad
 3. change the value in line 7 and 8 from 50 to ...
 3.1 the printer bedsize is 200x150, so for 8 letters change it to 25
-4. change the text in line 176 to 
+4. change the text in line 176 to ...
+4.1 every array represents a row, so [["S", "A", "P", " ", "H", "A", "N", "A"], [" ", " ", "C", "L", "O", "U", "D", " "], ...];
+5. render
+6. create the letters
+6.1 comment everything from line 178 out
+6.2 open terminal run python generateModels.py
+6.3 this will write all letter boxes with the new size to the export directory
+
+GOOD LUCK!
